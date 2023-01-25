@@ -1,6 +1,12 @@
-import { Container, Nav, Navbar, Badge } from "react-bootstrap";
+import { useState } from "react";
+import { Container, Nav, Navbar, Badge, Button } from "react-bootstrap";
 import CartIcon from "../assets/CartIcon";
+import Cart from "../Cart/Cart";
 const NavBar = () => {
+  const [show,setShow] = useState(true);
+  const showCartHandler = () => {
+    setShow(!show)
+  }
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
@@ -13,15 +19,12 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            <Nav.Link href="#home">
-              Cart
-              {/* {<CartIcon/>} */}
-              <Badge bg="dark">0</Badge>
-            </Nav.Link>
-          </Navbar.Text>
+            <Button onClick={showCartHandler} variant="primary">
+              Cart <Badge bg="primary">0</Badge>
+            </Button>
         </Navbar.Collapse>
       </Container>
+      {!show && <Cart onClose={showCartHandler} />}
     </Navbar>
   );
 };

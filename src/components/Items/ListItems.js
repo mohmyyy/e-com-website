@@ -1,5 +1,5 @@
 import Cards from "./Cards";
-import { Col, Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 const ListItems = () => {
   const productsArr = [
@@ -28,29 +28,29 @@ const ListItems = () => {
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
     },
   ];
+
+  const addToCardHandler = (item) => {
+    console.log(item);
+  };
+
   const items = (
-    <div className="row">
+    <Row>
       {productsArr.map((itm) => {
         return (
-          <div className="col-md-5">
-            <center>
-              <Cards item={itm} />
-            </center>
-          </div>
+          <Col xs={6}>
+            <Cards onClick={addToCardHandler} item={itm} />
+          </Col>
         );
       })}
-    </div>
+    </Row>
   );
   return (
-    <section>
-      <Container>
+      <Container className="mt-3" >
         <center>
           <h1>Music</h1>
         </center>
-        <div className=""> </div>
         {items}
       </Container>
-    </section>
   );
 };
 
