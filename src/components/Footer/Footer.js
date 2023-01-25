@@ -1,13 +1,21 @@
-import {React} from 'react'
+import { React } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
-const Footer = ()  => {
+const Footer = () => {
   return (
-      <nav className='navbar navbar-expand navbar-dark bg-primary'>
-        <div className='container'>
-          <h2 className='navbar nav' >Mikaelsons</h2>
-        </div>
-      </nav>
-  )
-}
+    <Navbar bg="primary" expand="lg" variant="dark">
+      <Container>
+        <Navbar.Brand>Mikaelson</Navbar.Brand>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link>Youtube</Nav.Link>
+            <Nav.Link>Instagram</Nav.Link>
+            <Nav.Link>FaceBook</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
 
-export default Footer
+export default Footer;

@@ -1,6 +1,6 @@
 import { Container, Nav, Navbar, Badge } from "react-bootstrap";
 import CartIcon from "../assets/CartIcon";
-const Header = () => {
+const NavBar = () => {
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
@@ -26,4 +26,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;
