@@ -17,12 +17,12 @@ const NavBar = () => {
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
-        <Navbar.Brand href="#"> Mikaelsons </Navbar.Brand>
+        <Navbar.Brand href="/"> Mikaelsons </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" style={{ color: "black" }}>
-            <Nav.Link href="#home">HOME</Nav.Link>
-            <Nav.Link href="#link">STORE</Nav.Link>
-            <Nav.Link href="#link">ABOUT</Nav.Link>
+            <Nav.Link href="home">HOME</Nav.Link>
+            <Nav.Link href="Store">STORE</Nav.Link>
+            <Nav.Link href="About">ABOUT</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">

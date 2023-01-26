@@ -2,6 +2,7 @@ import Cards from "./Cards";
 import { Col, Container, Row } from "react-bootstrap";
 import { useContext } from "react";
 import CartContext from "../store/cart-context";
+import AboutPage from "../AboutPage/AboutPage";
 
 const ListItems = () => {
   const productsArr = [
@@ -31,13 +32,13 @@ const ListItems = () => {
     },
   ];
 
-  const ctx = useContext(CartContext)
+  const ctx = useContext(CartContext);
 
   const items = (
     <Row>
       {productsArr.map((itm) => {
         return (
-          <Col  key={itm.price+itm.title} xs={6}>
+          <Col key={itm.price + itm.title} xs={6}>
             <Cards item={itm} />
           </Col>
         );
@@ -45,12 +46,12 @@ const ListItems = () => {
     </Row>
   );
   return (
-      <Container className="mt-3" >
-        <center>
-          <h1>Music</h1>
-        </center>
-        {items}
-      </Container>
+    <Container className="mt-3">
+      <center>
+        <h1>Music</h1>
+      </center>
+      {items}
+    </Container>
   );
 };
 
