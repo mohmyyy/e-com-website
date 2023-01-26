@@ -1,44 +1,52 @@
-import { Button, Card, Container, Image, Table,CloseButton } from "react-bootstrap";
+import { useContext } from "react";
+import {
+  Button,
+  Card,
+  Image,
+  Table,
+  CloseButton,
+} from "react-bootstrap";
+import CartContext from "../store/cart-context";
 
 const Cart = (props) => {
-  const cartElements = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-      quantity: 2,
-    },
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-      quantity: 3,
-    },
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-      quantity: 1,
-    },
-  ];
-  const cartItems = cartElements.map((item) => {
+  const ctx = useContext(CartContext)
+  const cartItems = ctx.items.map((item) => {
     return (
-        <tr>
-          <td>
-          <Image src={item.imageUrl} width="50px" ></Image>
-          <span style={{margin:"15px"}}>{item.title}</span>
-          </td>
-          <td>{item.price}</td>
-          <td>{item.quantity} <Button>Remove</Button> </td>
-        </tr>
+      <tr>
+        <td>
+          <tr>
+            <td>
+              <Image
+                src={item.imageUrl}
+                style={{ marginRight: "15px" }}
+                width="50px"
+              ></Image>
+            </td>
+            <td>
+              <span>{item.title}</span>
+            </td>
+          </tr>
+        </td>
+        <td>{item.price}</td>
+        <td>
+          <tr>
+            <td>{item.quantity}</td>
+            <td>
+              <Button>Remove</Button>{" "}
+            </td>
+          </tr>
+        </td>
+      </tr>
     );
   });
   return (
     <Card>
-      <h2 style={{ textAlign: "center", marginTop: "20px" }}>Cart <span><CloseButton onClick={props.onClose} /></span></h2>
+      <h2 style={{ textAlign: "center", marginTop: "20px" }}>
+        Cart{" "}
+        <span>
+          <CloseButton onClick={props.onClose} />
+        </span>
+      </h2>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -46,10 +54,8 @@ const Cart = (props) => {
             <th>Price</th>
             <th>Quantity</th>
           </tr>
-          </thead>
-          <tbody>
-          {cartItems}
-          </tbody>
+        </thead>
+        <tbody>{cartItems}</tbody>
       </Table>
     </Card>
   );

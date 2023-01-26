@@ -1,6 +1,13 @@
+import { useContext } from "react";
 import { Button, Card, Container, Col } from "react-bootstrap";
+import CartContext from "../store/cart-context";
 const Cards = (props) => {
-  console.log(props.item);
+  const ctx = useContext(CartContext)
+  const addToCardHandler = (event) => {
+    event.preventDefault();
+    const quantity = +1
+    ctx.addToItems({...props.item,quantity:quantity})
+  }
   return (
         <Card style={{ width: "20rem" }}>
           <h3>{props.item.title}</h3>
@@ -9,7 +16,7 @@ const Cards = (props) => {
             <Card.Text>
               <Card.Title>${props.item.price}</Card.Title>
             </Card.Text>
-            <Button onClick = {props.onClick}>Add to Card</Button>
+            <Button type="click" onClick = {addToCardHandler}>Add to Card</Button>
           </Card.Body>
         </Card>
   );
