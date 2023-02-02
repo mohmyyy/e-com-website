@@ -1,0 +1,8 @@
+.wrapper {
+  height: 300px;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  margin: 10rem;
+  padding: 10rem;
+}

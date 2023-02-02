@@ -23,6 +23,7 @@ const NavBar = () => {
             <Nav.Link href="home">HOME</Nav.Link>
             <Nav.Link href="Store">STORE</Nav.Link>
             <Nav.Link href="About">ABOUT</Nav.Link>
+            <Nav.Link href="ContactUs">CONTACT US</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">

@@ -4,12 +4,10 @@ import NavBar from "./components/Header/NavBar";
 import Footer from "./components/Footer/Footer";
 import ListItems from "./components/Items/ListItems";
 import CartProvider from "./components/store/CardProvider";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AboutPage from "./components/AboutPage/AboutPage";
 import HomePage from "./components/HomePage/HomePage";
+import ContactUs from "./components/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +28,7 @@ const router = createBrowserRouter([
         <AboutPage />
         <Footer></Footer>
       </CartProvider>
-    )
+    ),
   },
   {
     path: "/Home",
@@ -42,6 +40,16 @@ const router = createBrowserRouter([
       </CartProvider>
     ),
   },
+  {
+    path: "/ContactUs",
+    element: (
+      <CartProvider>
+        <NavBar />
+        <ContactUs />
+        <Footer></Footer>
+      </CartProvider>
+    ),
+  }
 ]);
 
 const App = () => {
