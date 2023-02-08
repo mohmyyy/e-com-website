@@ -26,6 +26,7 @@ const HomePage = () => {
   });
 
   return (
+    
     <Container>
       <center>
         <h2>TOUR</h2>

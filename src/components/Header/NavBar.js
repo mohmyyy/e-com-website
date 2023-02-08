@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
-import { Container, Nav, Navbar, Badge, Button } from "react-bootstrap";
-import CartIcon from "../assets/CartIcon";
+import { Container, Nav, Navbar, Badge, Button, Card } from "react-bootstrap";
 import Cart from "../Cart/Cart";
 import CartContext from "../store/cart-context";
 const NavBar = () => {
@@ -15,25 +14,40 @@ const NavBar = () => {
     itemsInCart = +itemsInCart + +item.quantity;
   });
   return (
-    <Navbar bg="primary" expand="lg" variant="dark">
-      <Container>
-        <Navbar.Brand href="/"> Mikaelsons </Navbar.Brand>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto" style={{ color: "black" }}>
-            <Nav.Link href="home">HOME</Nav.Link>
-            <Nav.Link href="Store">STORE</Nav.Link>
-            <Nav.Link href="About">ABOUT</Nav.Link>
-            <Nav.Link href="ContactUs">CONTACT US</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-        <Navbar.Collapse className="justify-content-end">
-          <Button onClick={showCartHandler} variant="primary">
-            Cart <Badge bg="primary">{itemsInCart}</Badge>
-          </Button>
-        </Navbar.Collapse>
-      </Container>
-      {!show && <Cart onClose={showCartHandler} />}
-    </Navbar>
+    <div className="mb-5">
+      <Navbar
+        collapseOnSelect
+        bg="primary"
+        expand="lg"
+        variant="dark"
+        fixed="top"
+      >
+        <Container>
+          <Navbar.Brand href="/">Mikaelsons</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="home">HOME</Nav.Link>
+              <Nav.Link href="store">STORE</Nav.Link>
+              <Nav.Link href="about">ABOUT</Nav.Link>
+              <Nav.Link href="contactus">CONTACT US</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+          <Navbar.Collapse className="justify-content-end">
+            <Button
+              onClick={showCartHandler}
+              variant="primary"
+              className="border"
+            >
+              Cart <Badge bg="primary">{itemsInCart}</Badge>
+            </Button>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Card>
+        {!show && <Cart onShow={showCartHandler} onClose={showCartHandler} />}
+      </Card>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <Navbar bg="primary" expand="lg" variant="dark">
+    <Navbar  bg="primary" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand>Mikaelson</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">

@@ -5,6 +5,7 @@ import {
   Image,
   Table,
   CloseButton,
+  Modal,
 } from "react-bootstrap";
 import CartContext from "../store/cart-context";
 
@@ -16,9 +17,8 @@ const Cart = (props) => {
         <td>
           <tr>
             <td>
-              <Image
+              <Image className="me-3"
                 src={item.imageUrl}
-                style={{ marginRight: "15px" }}
                 width="50px"
               ></Image>
             </td>
@@ -27,12 +27,12 @@ const Cart = (props) => {
             </td>
           </tr>
         </td>
-        <td>{item.price}</td>
+        <td>{item.price*+item.quantity}</td>
         <td>
           <tr>
             <td>{item.quantity}</td>
             <td>
-              <Button>Remove</Button>{" "}
+              <Button className="ms-3">Remove</Button>{" "}
             </td>
           </tr>
         </td>
@@ -40,14 +40,31 @@ const Cart = (props) => {
     );
   });
   return (
-    <Card>
-      <h2 style={{ textAlign: "center", marginTop: "20px" }}>
-        Cart{" "}
-        <span>
-          <CloseButton onClick={props.onClose} />
-        </span>
-      </h2>
-      <Table striped bordered hover>
+    // <Card>
+    //   <h2 style={{ textAlign: "center", marginTop: "20px" }}>
+    //     Cart{" "}
+    //     <span>
+    //       <CloseButton className="" onClick={props.onClose} />
+    //     </span>
+    //   </h2>
+      // <Table striped bordered hover>
+      //   <thead>
+      //     <tr>
+      //       <th>Item</th>
+      //       <th>Price</th>
+      //       <th>Quantity</th>
+      //     </tr>
+      //   </thead>
+      //   <tbody>{cartItems}</tbody>
+      // </Table>
+    // </Card>
+
+      <Modal show={props.onShow} onHide={props.onShow}>
+        <Modal.Header closeButton>
+          <Modal.Title>Cart</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <Table striped bordered hover>
         <thead>
           <tr>
             <th>Item</th>
@@ -57,7 +74,12 @@ const Cart = (props) => {
         </thead>
         <tbody>{cartItems}</tbody>
       </Table>
-    </Card>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="info" onClick={props.onShow}>Close</Button>
+          <Button variant="danger">Purchase</Button>
+        </Modal.Footer>
+      </Modal>
   );
 };
 

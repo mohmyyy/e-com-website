@@ -1,24 +1,36 @@
 import { useContext } from "react";
-import { Button, Card, Container, Col } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import CartContext from "../store/cart-context";
+import ProductPage from "./ProductPage";
 const Cards = (props) => {
-  const ctx = useContext(CartContext)
+  const ctx = useContext(CartContext);
+  console.log(`/store/${props.item.id}`)
   const addToCardHandler = (event) => {
     event.preventDefault();
-    const quantity = +1
-    ctx.addToItems({...props.item,quantity:quantity})
+    const quantity = +1;
+    ctx.addToItems({ ...props.item, quantity: quantity });
+  };
+  const productDetailsHandler = (item) => {
+    console.log(item)
+    ctx.addproductObj(item)
+    
   }
   return (
-        <Card style={{ width: "20rem" }}>
-          <h3>{props.item.title}</h3>
-          <Card.Img variant="top" src={props.item.imageUrl} />
-          <Card.Body>
-            <Card.Text>
-              <Card.Title>${props.item.price}</Card.Title>
-            </Card.Text>
-            <Button type="click" onClick = {addToCardHandler}>Add to Card</Button>
-          </Card.Body>
-        </Card>
+    <Card className="m-5">
+      <h3>{props.item.title}</h3>
+      <Link to={`/store/${props.item.id}`}>
+        <Card.Img onClick={()=>productDetailsHandler(props.item)} variant="top" src={props.item.imageUrl} />
+      </Link>
+      <Card.Body>
+        <Card.Text>
+          <Card.Title>${props.item.price}</Card.Title>
+        </Card.Text>
+        <Button type="click" onClick={addToCardHandler}>
+          Add to Card
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
 export default Cards;
