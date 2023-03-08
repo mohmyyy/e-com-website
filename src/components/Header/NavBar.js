@@ -27,13 +27,15 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="home">HOME</Nav.Link>
-              <Nav.Link href="store">STORE</Nav.Link>
-              <Nav.Link href="about">ABOUT</Nav.Link>
-              <Nav.Link href="contactus">CONTACT US</Nav.Link>
+              <Nav.Link href="home">Home</Nav.Link>
+              <Nav.Link href="store">Store</Nav.Link>
+              <Nav.Link href="about">About</Nav.Link>
+              <Nav.Link href="auth">Login</Nav.Link>
+              <Nav.Link href="contactus">Contact Us</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">
+            {ctx.isLoggedIn && <Button onClick={ctx.logout}>Logout</Button>}
             <Button
               onClick={showCartHandler}
               variant="primary"
