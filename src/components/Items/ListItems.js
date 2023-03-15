@@ -3,7 +3,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useContext } from "react";
 import CartContext from "../store/cart-context";
 import AboutPage from "../AboutPage/AboutPage";
-
+import classes from "./ListItem.module.css";
+import Logo from "./Logo";
 const ListItems = () => {
   const productsArr = [
     {
@@ -39,7 +40,7 @@ const ListItems = () => {
   const ctx = useContext(CartContext);
 
   const items = (
-    <Row className="row justify-content-center">
+    <Row className={`row justify-content-center ${classes.product}`}>
       {productsArr.map((itm) => {
         return (
           <Col className="col-sm-10 col-lg-6" key={itm.id}>
@@ -50,12 +51,14 @@ const ListItems = () => {
     </Row>
   );
   return (
-    <Container>
-      <center>
-        <h1>Music</h1>
-      </center>
-      {items}
-    </Container>
+    <>
+      <Container>
+        <center>
+          <h1>Music</h1>
+        </center>
+        {items}
+      </Container>
+    </>
   );
 };
 

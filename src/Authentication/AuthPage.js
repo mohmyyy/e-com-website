@@ -2,12 +2,13 @@ import { useContext, useRef, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import CartContext from "../components/store/cart-context";
+import classes from "./AuthPage.module.css"
 
 const AuthPage = (props) => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const history = useHistory();
-  const [loading,setIsLoading] = useState(false);
+  // const [loading,setIsLoading] = useState(false);
   const ctx = useContext(CartContext)
 
   const loginFormSubmitHandler = async (event) => {
@@ -36,7 +37,8 @@ const AuthPage = (props) => {
         throw new Error(data.error.message);
       }
       else{
-        ctx.login(data.idToken);
+        console.log(data.email)
+        ctx.login(data.idToken,data.email);
         history.replace('/store')
       }
       
@@ -46,8 +48,8 @@ const AuthPage = (props) => {
     }
   }
   return (
-    <Container>
-      <Form className="m-5 p-4" onSubmit={loginFormSubmitHandler}>
+    <Container className={classes.container}>
+      <Form onSubmit={loginFormSubmitHandler} className={classes.authentication}>
         <Form.Group className="mb-3" controlId="formBasicEmail" >
           <Form.Label>Email</Form.Label>
           <Form.Control type="email" ref={emailRef} placeholder="Enter Your Email" />

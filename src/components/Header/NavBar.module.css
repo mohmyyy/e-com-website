@@ -1,0 +1,7 @@
+.navbar{
+  display: grid;
+  margin: auto;
+}
+NavLink{
+  margin: 30px;
+}

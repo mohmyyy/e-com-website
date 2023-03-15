@@ -2,15 +2,47 @@ import { useContext } from "react";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import CartContext from "../store/cart-context";
+import classes from "./ProductPage.module.css"
 
 const ProductPage = (props) => {
   const ctx = useContext(CartContext)
   console.log(ctx.productDetails)
   const params = useParams();
+  console.log(params.productId)
+  let Image1 = null
+  let Image2 = null
+  let Image3 = null
+  const Image = {
+    Image1:null,
+    Image2:null,
+    Image3:null
+  }
+
+  if(params.productId === 'p1'){
+    Image3 = "https://media.istockphoto.com/id/1192236158/photo/explosion-of-colored-powder-on-black-background.webp?s=1024x1024&w=is&k=20&c=h7vSosF9lqaJ0Cl0NPNVBmV2ymMZSATGcfZv-SIMH7c="
+    Image2 = 'https://media.istockphoto.com/id/1053667384/photo/abstract-colored-dust-explosion-on-a-black-background-abstract-powder-splatted-background.webp?s=1024x1024&w=is&k=20&c=wpZrg-kHkSDZKrZpu_iG9dsp5xMGdkojcfLqpwLGVWE='
+    Image1 = 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png'
+  } else if(params.productId === 'p2'){
+    Image2 = "https://media.istockphoto.com/id/1192236158/photo/explosion-of-colored-powder-on-black-background.webp?s=1024x1024&w=is&k=20&c=h7vSosF9lqaJ0Cl0NPNVBmV2ymMZSATGcfZv-SIMH7c="
+    Image3 = 'https://media.istockphoto.com/id/1053667384/photo/abstract-colored-dust-explosion-on-a-black-background-abstract-powder-splatted-background.webp?s=1024x1024&w=is&k=20&c=wpZrg-kHkSDZKrZpu_iG9dsp5xMGdkojcfLqpwLGVWE='
+    Image1 = 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png'
+  }
+  else if(params.productId === 'p3'){
+    Image2 = "https://media.istockphoto.com/id/1192236158/photo/explosion-of-colored-powder-on-black-background.webp?s=1024x1024&w=is&k=20&c=h7vSosF9lqaJ0Cl0NPNVBmV2ymMZSATGcfZv-SIMH7c="
+    Image3 = 'https://media.istockphoto.com/id/1053667384/photo/abstract-colored-dust-explosion-on-a-black-background-abstract-powder-splatted-background.webp?s=1024x1024&w=is&k=20&c=wpZrg-kHkSDZKrZpu_iG9dsp5xMGdkojcfLqpwLGVWE='
+    Image1 = 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png'
+  }
+  else if(params.productId === 'p4'){
+    Image3 = "https://media.istockphoto.com/id/1192236158/photo/explosion-of-colored-powder-on-black-background.webp?s=1024x1024&w=is&k=20&c=h7vSosF9lqaJ0Cl0NPNVBmV2ymMZSATGcfZv-SIMH7c="
+    Image2 = 'https://media.istockphoto.com/id/1053667384/photo/abstract-colored-dust-explosion-on-a-black-background-abstract-powder-splatted-background.webp?s=1024x1024&w=is&k=20&c=wpZrg-kHkSDZKrZpu_iG9dsp5xMGdkojcfLqpwLGVWE='
+    Image1 = 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png'
+  }
   const addToCard = (item) => {
     console.log(item)
+    console.log(ctx)
     const quantity = +1;
     ctx.addToItems({ ...ctx.productDetails, quantity: quantity })
+
   }
   return (
     <Container className="container my-5">
@@ -24,7 +56,19 @@ const ProductPage = (props) => {
               className="img-fluid"
               style={{ width: "400px" }}
               variant="top"
-              src={ctx.productDetails.imageUrl}
+              src={Image1}
+            />
+            <Card.Img
+              className="img-fluid"
+              style={{ width: "400px" }}
+              variant="top"
+              src={Image2}
+            />
+            <Card.Img
+              className="img-fluid"
+              style={{ width: "400px" }}
+              variant="top"
+              src={Image3}
             />
           </Col>
           <Col lg={4} sm={8}>

@@ -1,8 +1,16 @@
 import { useContext, useState } from "react";
 import { Container, Nav, Navbar, Badge, Button, Card } from "react-bootstrap";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import CartContext from "../store/cart-context";
+import classes from "./NavBar.module.css"
+
 const NavBar = () => {
+  const params = useParams();
+  console.log(params)
+  const location = useLocation();
+  console.log(location)
+
   const [show, setShow] = useState(true);
   const ctx = useContext(CartContext);
 
@@ -17,32 +25,32 @@ const NavBar = () => {
     <div className="mb-5">
       <Navbar
         collapseOnSelect
-        bg="primary"
+        bg="light"
         expand="lg"
         variant="dark"
         fixed="top"
       >
         <Container>
-          <Navbar.Brand href="/">Mikaelsons</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="home">Home</Nav.Link>
-              <Nav.Link href="store">Store</Nav.Link>
-              <Nav.Link href="about">About</Nav.Link>
-              <Nav.Link href="auth">Login</Nav.Link>
-              <Nav.Link href="contactus">Contact Us</Nav.Link>
+          <Navbar.Collapse className={classes.navbar} id="responsive-navbar-nav">
+            <Nav>
+              <NavLink className="mx-5" to="/home">Home</NavLink>
+              <NavLink className="mx-5" to="/store">Store</NavLink>
+              <NavLink className="mx-5" to="/about">About</NavLink>
+              {!ctx.isLoggedIn && (<NavLink className="mx-5" to="/auth">Login</NavLink>)}
+              <NavLink to="/contactus" className="mx-5" >Contact Us</NavLink>
             </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">
-            {ctx.isLoggedIn && <Button onClick={ctx.logout}>Logout</Button>}
-            <Button
+          {( location.pathname === '/store' || location.pathname === "/store/:productId") && (<Button
               onClick={showCartHandler}
               variant="primary"
-              className="border"
+              className="mx-5 border"
+
             >
               Cart <Badge bg="primary">{itemsInCart}</Badge>
-            </Button>
+            </Button>)}
+            {ctx.isLoggedIn && <Button onClick={ctx.logout}>Logout</Button>}
           </Navbar.Collapse>
         </Container>
       </Navbar>

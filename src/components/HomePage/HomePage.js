@@ -1,3 +1,5 @@
+import Logo from "../Items/Logo";
+import classes from "./HomePage.module.css";
 const { Container, Table, Button } = require("react-bootstrap");
 
 const HomePage = () => {
@@ -12,7 +14,7 @@ const HomePage = () => {
 
   const tourArray = tourArr.map((item) => {
     return (
-      <tbody >
+      <tbody key={Math.random()}>
         <tr>
           <td>{item.date}</td>
           <td>{item.city}</td>
@@ -26,17 +28,18 @@ const HomePage = () => {
   });
 
   return (
-    
-    <Container>
-      <center>
+    <>
+      <header className={classes.header}>
+        <button className={classes.latestAlbum}>Get Our Latest Album</button>
+        <button className={classes.playBtn}>►</button>
+      </header>
+      <Container className={classes.container}>
         <h2>TOUR</h2>
-      </center>
-      <Table>
-        <center>
-          <tbody>{tourArray}</tbody>
-        </center>
-      </Table>
-    </Container>
+        <Table>
+          {tourArray}
+        </Table>
+      </Container>
+    </>
   );
 };
 
