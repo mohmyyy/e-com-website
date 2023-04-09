@@ -6,7 +6,7 @@ const ErrorPage = () => {
     <>
       <center className="m-5">
         <h1>Could Not Find page</h1>
-        <p>You funcking idiot</p>
+        <p>Try again after a decade</p>
       </center>
     </>
   );

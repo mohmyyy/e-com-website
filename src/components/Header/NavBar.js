@@ -25,7 +25,7 @@ const NavBar = () => {
     <div className="mb-5">
       <Navbar
         collapseOnSelect
-        bg="light"
+        bg="dark"
         expand="lg"
         variant="dark"
         fixed="top"

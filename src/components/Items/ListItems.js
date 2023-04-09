@@ -43,7 +43,7 @@ const ListItems = () => {
     <Row className={`row justify-content-center ${classes.product}`}>
       {productsArr.map((itm) => {
         return (
-          <Col className="col-sm-10 col-lg-6" key={itm.id}>
+          <Col key={itm.id}>
             <Cards item={itm} />
           </Col>
         );

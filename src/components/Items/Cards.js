@@ -18,7 +18,7 @@ const Cards = (props) => {
   }
   return (
     <Card className="m-5">
-      <h3>{props.item.title}</h3>
+      <Card.Header>{props.item.title}</Card.Header>
       <Link to={`/store/${props.item.id}`}>
         <Card.Img onClick={()=>productDetailsHandler(props.item)} variant="top" src={props.item.imageUrl} />
       </Link>
