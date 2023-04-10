@@ -35,7 +35,7 @@ const App = () => {
         }
       >
         <Switch>
-          <Route path="/e-com-Website/" exact>
+          <Route path="/" exact>
             <Redirect to="/home" />
           </Route>
           <Route path="/home" exact>
