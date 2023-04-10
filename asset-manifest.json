@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/e-com-website/static/css/main.b9aa7260.css",
-    "main.js": "/e-com-website/static/js/main.cc2a8a6e.js",
+    "main.js": "/e-com-website/static/js/main.937f2cae.js",
     "static/css/27.e22e8a5f.chunk.css": "/e-com-website/static/css/27.e22e8a5f.chunk.css",
     "static/js/27.d093e0fd.chunk.js": "/e-com-website/static/js/27.d093e0fd.chunk.js",
     "static/js/983.ba67e08e.chunk.js": "/e-com-website/static/js/983.ba67e08e.chunk.js",
@@ -19,7 +19,7 @@
     "static/css/257.31d6cfe0.chunk.css": "/e-com-website/static/css/257.31d6cfe0.chunk.css",
     "index.html": "/e-com-website/index.html",
     "main.b9aa7260.css.map": "/e-com-website/static/css/main.b9aa7260.css.map",
-    "main.cc2a8a6e.js.map": "/e-com-website/static/js/main.cc2a8a6e.js.map",
+    "main.937f2cae.js.map": "/e-com-website/static/js/main.937f2cae.js.map",
     "27.e22e8a5f.chunk.css.map": "/e-com-website/static/css/27.e22e8a5f.chunk.css.map",
     "27.d093e0fd.chunk.js.map": "/e-com-website/static/js/27.d093e0fd.chunk.js.map",
     "983.ba67e08e.chunk.js.map": "/e-com-website/static/js/983.ba67e08e.chunk.js.map",
@@ -36,6 +36,6 @@
   },
   "entrypoints": [
     "static/css/main.b9aa7260.css",
-    "static/js/main.cc2a8a6e.js"
+    "static/js/main.937f2cae.js"
   ]
 }
