@@ -34,11 +34,11 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse className={classes.navbar} id="responsive-navbar-nav">
             <Nav>
-              <NavLink className="mx-5" to="/home">Home</NavLink>
-              <NavLink className="mx-5" to="/store">Store</NavLink>
-              <NavLink className="mx-5" to="/about">About</NavLink>
-              {!ctx.isLoggedIn && (<NavLink className="mx-5" to="/auth">Login</NavLink>)}
-              <NavLink to="/contactus" className="mx-5" >Contact Us</NavLink>
+              <NavLink className="mx-5 my-2" to="/home">Home</NavLink>
+              <NavLink className="mx-5 my-2" to="/store">Store</NavLink>
+              <NavLink className="mx-5 my-2" to="/about">About</NavLink>
+              {!ctx.isLoggedIn && (<NavLink className="mx-5 my-2" to="/auth">Login</NavLink>)}
+              <NavLink to="/contactus" className="mx-5 my-2" >Contact Us</NavLink>
             </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">

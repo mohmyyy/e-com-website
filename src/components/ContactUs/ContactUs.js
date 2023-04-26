@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Card, Container, Form } from "react-bootstrap";
 //  Name,email Id, phone number
 import classes from "./ContactUs.module.css";
 const ContactUs = () => {
@@ -21,12 +21,12 @@ const ContactUs = () => {
   };
   const messageChangeHandler = (event) => {
     setContact({ ...contact, msg: event.target.value });
-    console.log(event.target.value)
+    console.log(event.target.value);
   };
   const buttonControlHandler = async (event) => {
     event.preventDefault();
     const response = await fetch(
-      "https://icommerce-page-default-rtdb.firebaseio.com/contact-us.json",
+      "https://ecom-3514a-default-rtdb.firebaseio.com/contact-us.json",
       {
         method: "POST",
         body: JSON.stringify(contact),
@@ -36,7 +36,7 @@ const ContactUs = () => {
       }
     );
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     setContact({
       name: "",
       email: "",
@@ -46,56 +46,57 @@ const ContactUs = () => {
   };
   return (
     <Container className={classes.container}>
-      <header className={classes.header}>
-        <h1>Get in Touch with us</h1>
-        <span>kindly leave a message and we'll connect.</span>
-      </header>
-      <Form className={classes.Form} onSubmit={buttonControlHandler}>
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="nameInput">Name</Form.Label>
-          <Form.Control
-            value={contact.name}
-            onChange={nameChangeHandler}
-            type="text"
-            id="nameInput"
-            placeholder="Enter Name"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="emailInput">Email</Form.Label>
-          <Form.Control
-            value={contact.email}
-            onChange={emailChangeHandler}
-            type="email"
-            id="emailInput"
-            placeholder="Enter Email"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="detailsInput">Phone No.</Form.Label>
-          <Form.Control
-            value={contact.phNum}
-            onChange={phNumChangeHandler}
-            type="numbers"
-            id="detailsInput"
-            placeholder="Contact Details"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Your Message</Form.Label>
-          <Form.Control
-            value={contact.msg}
-            onChange={messageChangeHandler}
-            
-            as="textarea"
-            rows={5}
-            placeholder="Your personalised message!"
-          />
-        </Form.Group>
-        <Button className={classes.btn} type="submit">
-          Submit
-        </Button>
-      </Form>
+      <Card className="p-5">
+        <header className={classes.header}>
+          <h1>Get in Touch with us</h1>
+          <span>kindly leave a message and we'll connect.</span>
+        </header>
+        <Form className={classes.Form} onSubmit={buttonControlHandler}>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="nameInput">Name</Form.Label>
+            <Form.Control
+              value={contact.name}
+              onChange={nameChangeHandler}
+              type="text"
+              id="nameInput"
+              placeholder="Enter Name"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="emailInput">Email</Form.Label>
+            <Form.Control
+              value={contact.email}
+              onChange={emailChangeHandler}
+              type="email"
+              id="emailInput"
+              placeholder="Enter Email"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="detailsInput">Phone No.</Form.Label>
+            <Form.Control
+              value={contact.phNum}
+              onChange={phNumChangeHandler}
+              type="numbers"
+              id="detailsInput"
+              placeholder="Contact Details"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Your Message</Form.Label>
+            <Form.Control
+              value={contact.msg}
+              onChange={messageChangeHandler}
+              as="textarea"
+              rows={5}
+              placeholder="Your personalised message!"
+            />
+          </Form.Group>
+          <Button className={classes.btn} type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Card>
     </Container>
   );
 };

@@ -1,21 +1,24 @@
 import { React } from "react";
 import { Badge, Button, Container, Image, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import classes from "./Footer.module.css";
+import {AiFillGithub} from 'react-icons/ai'
+import {BsFacebook} from 'react-icons/bs'
+import {AiFillYoutube} from 'react-icons/ai'
+
 const Footer = () => {
   return (
-    <Navbar bg="dark" fixed="end" expand="sm" variant="dark" className={classes.footer}>
+    <Navbar bg="dark" fixed="end" expand="sm" variant="dark">
       <Container>
         <Navbar.Brand>The Generics</Navbar.Brand>
-        <Nav >
+        <Nav  >
           <Link to="/www.youtube.com">
-            <Image src="YoutubeLogo.png.png" style={{ width: "70px",marginRight:"10px" }} />
+            <AiFillYoutube className="mx-2" size={40}  />
           </Link>
           <Link to="www.facebook.com">
-            <Image src="download.png" style={{ width: "50px",marginRight:"23px" }} />
+            <BsFacebook className="mx-2" size={40} />
           </Link>
           <Link to="www.github.com">
-            <Image src="git.png" style={{ width: "50px" }} />
+            <AiFillGithub className="mx-2" size={40} />
           </Link>
         </Nav>
       </Container>

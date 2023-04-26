@@ -29,7 +29,7 @@ const App = () => {
     <RootLayout>
       <React.Suspense
         fallback={
-          <center>
+          <center className="mt-5">
             <Loader />
           </center>
         }

@@ -1,19 +1,23 @@
 import { Card, Container } from "react-bootstrap";
-import classes from "./AboutPage.module.css";
 
 const AboutPage = () => {
   return (
-    <Card>
-      <Container>
+    <Container>
+      <Card className="border-0">
         <Card.Body>
           <Card.Title>
-            <h1>About</h1>
+            <h1 className="text-center">About</h1>
           </Card.Title>
           <Card.Text>
             <Card.Img
               variant="top"
               src="bandMembers.png"
-              style={{width:"200px",float:"left",margin:"20px",borderRadius:"50%"}}
+              style={{
+                width: "200px",
+                float: "left",
+                margin: "20px",
+                borderRadius: "50%",
+              }}
             />
             Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of
             sorrows, hates no prosecutors will unfold in the enduring of which
@@ -61,8 +65,8 @@ const AboutPage = () => {
             we are accusing him? Him whom something large cisterns.
           </Card.Text>
         </Card.Body>
-      </Container>
-    </Card>
+      </Card>
+    </Container>
   );
 };
 
